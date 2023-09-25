@@ -18,3 +18,19 @@
 <!-- 🐶 Ajoute ensuite cette div à la div racine "root" `append` -->
 <!--   🤖 document.getElementById('root') -->
 <!--   📑 https://developer.mozilla.org/en-US/docs/Web/API/Element/append -->
+
+<html>
+  <head> </head>
+  <body>
+    <script>
+      const newRoot = document.createElement("div");
+      newRoot.setAttribute("id", "root");
+      document.body.appendChild(newRoot);
+
+      let newDiv = document.createElement("div");
+      newDiv.textContent = "Bienvenue sur ce site";
+      newDiv.className = "rootContainer";
+      document.getElementById("root").append(newDiv);
+    </script>
+  </body>
+</html>
