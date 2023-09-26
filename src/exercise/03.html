@@ -1,34 +1,35 @@
-<!-- Manipuler le DOM avec React -->
-<!-- http://localhost:3000/alone/exercise/02.html -->
+<!-- Utilisation de JSX -->
+<!-- 🚀 Imbrication (avec avec fragment) -->
+<!-- http://localhost:3000/alone/final/02.bonus-1.html -->
 
 <html>
   <head>
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
-    <!-- ⛏️ Ajoute Babel en supprimant les commentaires de la ligne ci-dessous -->
     <script src="https://unpkg.com/@babel/standalone@7.15.1/babel.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <!-- 🐶 Pour que Babel prenne en compte le code JavaScipt, il faut rajouter un attribut `type="text/babel"`
-    A la balise <script> -->
-    <script type="'text/babel">
-      const rootEl = document.getElementById('root')
-
-      // 🐶 Il va falloir maintenant réimplémenter avec JSX
-      <!-- const divEl = document.createElement('div')
-      divEl.textContent = 'Bienvenue sur mon site'
-      divEl.className = 'rootContainer' -->
-
-
-
-
-      // 🐶 Crée une variable divEl qui contient du JSX (une div avec un texte et une class comme
-      // le resultat final html attendu)
-      // 🤖 Attention aux attributs en React qui diffèrent légèrement du HTML ex : class -> className
-      // 📑 https://fr.reactjs.org/docs/dom-elements.html
-
-      document.getElementById('root').append(divEl)
+    <script type="text/babel">
+      const className = "rootContainer";
+      const h1Element = <h1>Bienvenue</h1>;
+      const h2Element = <h2>Commencez ici</h2>;
+      const pElement = (
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry
+        </p>
+      );
+      const children = (
+        <>
+          {h1Element}
+          {h2Element}
+          {pElement}
+        </>
+      );
+      const props = { className, children };
+      const divEl = <div {...props} />;
+      ReactDOM.render(divEl, document.getElementById("root"));
     </script>
   </body>
 </html>
