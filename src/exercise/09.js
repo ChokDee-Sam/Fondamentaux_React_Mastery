@@ -1,29 +1,33 @@
-// Les formulaires
-// http://localhost:3000/alone/exercise/08.js
+// Formulaires
+// 🚀 Composant controllé
+// http://localhost:3000/alone/final/05.js
 
-import * as React from 'react'
+import * as React from "react";
 
 function LoginForm() {
-  // 🐶 Gère l'événement onSubmit de <form> en créant une fonction 'handleSubmit'
-  // 🤖 <form onSubmit={handleSubmit}>
-  // 🤖 Utilise `event.preventDefault()` dans la fonction handleSubmit pour stopper
-  // le comportement par defaut du formulaire (soumission et rafraichissement page)
+  const [email, setEmail] = React.useState();
 
-  // 🐶 Affiche ensuite une popup Bonjour 'email@email.fr'
-  // 🤖 Utilise `event.target.elements.emailInput.value` pour récupèrer la valeur de l'email
+  const handleChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`Bonjour ${email}`);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Adresse email :
-        <input type="text" name="emailInput" />
+        <input type="text" name="emailInput" onChange={handleChange} />
       </label>
       <input type="submit" value="Connexion" />
     </form>
-  )
+  );
 }
-
 function App() {
-  return <LoginForm />
+  return <LoginForm />;
 }
 
-export default App
+export default App;
